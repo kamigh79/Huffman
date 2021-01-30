@@ -26,6 +26,6 @@ by pressing 4 :
 Exits the program.
 
 
-Authors : Mahbod Nasouri Tehran, Kamyar Ghazanfari
+Authors : Mahbod Nasouri Tehrani, Kamyar Ghazanfari
 
 

@@ -23,6 +23,9 @@ public class Huffman {
         int x = 0;
 
         while (true) {
+            
+            
+            
 
             System.out.print("\nEnter 1 for encode"
                     + "\n      2 for decode"

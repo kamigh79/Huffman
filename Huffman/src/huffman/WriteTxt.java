@@ -14,8 +14,11 @@ public class WriteTxt {
             FileWriter myWriter = new FileWriter(file);
             myWriter.write(txt);
             myWriter.close();
+            
+            
 
         } catch (IOException e) {
+            //show error on Log screen
             System.out.println("An error occurred.");
             e.printStackTrace();
 

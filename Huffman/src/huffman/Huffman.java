@@ -10,7 +10,7 @@ import java.util.Scanner;
 
 public class Huffman {
 
-    private static Map<Character, String> charPrefixHashMap = new HashMap<>();
+   private static Map<Character, String> charstrmap = new HashMap<>();
     static HuffmanNode root;
 
     public static void main(String[] args) throws IOException {
@@ -99,19 +99,19 @@ public class Huffman {
         return priorityQueue.poll();
     }
 
-    private static void setPrefixCodes(HuffmanNode node, StringBuilder prefix) {
+    private static void StrCode(HuffmanNode node, StringBuilder prefix) {
 
         if (node != null) {
             if (node.left == null && node.right == null) {
-                charPrefixHashMap.put(node.data, prefix.toString());
+                charstrmap.put(node.data, prefix.toString());
 
             } else {
                 prefix.append('0');
-                setPrefixCodes(node.left, prefix);
+                StrCode(node.left, prefix);
                 prefix.deleteCharAt(prefix.length() - 1);
 
                 prefix.append('1');
-                setPrefixCodes(node.right, prefix);
+                StrCode(node.right, prefix);
                 prefix.deleteCharAt(prefix.length() - 1);
             }
         }
@@ -131,13 +131,13 @@ public class Huffman {
         System.out.println("Character Frequency Map = " + freq);
         root = buildTree(freq);
 
-        setPrefixCodes(root, new StringBuilder());
-        System.out.println("Character Prefix Map = " + charPrefixHashMap);
+        StrCode(root, new StringBuilder());
+        System.out.println("Character Code Map = " + charstrmap);
         StringBuilder s = new StringBuilder();
 
         for (int i = 0; i < test.length(); i++) {
             char c = test.charAt(i);
-            s.append(charPrefixHashMap.get(c));
+            s.append(charstrmap.get(c));
         }
         File file = new File("Tree.cmp");
         file.createNewFile();
